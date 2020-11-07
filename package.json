@@ -1,0 +1,26 @@
+{
+    "name": "lhlyu-cli",
+    "version": "0.0.1",
+    "description": "lhlyu cli",
+    "main": "src/index.js",
+    "repository": "https://github.com/lhlyu/my-cli.git",
+    "author": "lhlyu",
+    "license": "MIT",
+    "keywords": [
+        "lhlyu-cli",
+        "cli",
+        "lhlyu",
+        "my-cli"
+    ],
+    "scripts": {
+        "dev": "node src/index.js",
+        "dev:c": "rm -rf app-demo && node src/index.js create app-demo"
+    },
+    "devDependencies": {
+        "chalk": "^4.1.0",
+        "commander": "^6.2.0",
+        "ejs": "^3.1.5",
+        "inquirer": "^7.3.3",
+        "validate-npm-package-name": "^3.0.0"
+    }
+}
