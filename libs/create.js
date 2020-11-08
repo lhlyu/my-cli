@@ -8,11 +8,11 @@ const chalk = require('chalk')
 // 校验名字是否符合npm规范
 const validateProjectName = require('validate-npm-package-name')
 
-const pk = require('../../package.json')
+const pk = require('../package.json')
 const conf = require('../config')
 const templates = require('../config/templates')
 const utils = require('../utils')
-const copy = require('../libs/copy')
+const copy = require('./copy')
 
 async function create(projectName, options) {
     const cwd = process.cwd()

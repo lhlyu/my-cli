@@ -56,3 +56,4 @@ node_modules/
 jscoverage_lib/
 bower_components/
 app-demo/
+/yarn.lock

@@ -1,9 +1,11 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.1-rc.6",
+    "version": "0.0.1-rc.7",
     "description": "lhlyu cli",
-    "main": "src/index.js",
-    "bin": "src/index.js",
+    "main": "./libs/index.js",
+    "bin": {
+        "lhlyu-cli": "./bin/lhlyu-cli"
+    },
     "repository": "https://github.com/lhlyu/my-cli.git",
     "author": "lhlyu",
     "license": "MIT",
@@ -14,8 +16,8 @@
         "my-cli"
     ],
     "scripts": {
-        "dev": "node src/index.js",
-        "dev:c": "rm -rf app-demo && node src/index.js create app-demo"
+        "dev": "node ./bin/lhlyu-cli",
+        "dev:c": "node ./bin/lhlyu-cli create app-demo"
     },
     "devDependencies": {
         "chalk": "^4.1.0",

@@ -1,6 +1,6 @@
 const program = require('commander')
 
-const pk = require('../../package.json')
+const pk = require('../package.json')
 
 function run() {
     program
