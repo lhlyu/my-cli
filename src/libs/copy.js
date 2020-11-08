@@ -15,16 +15,32 @@ async function copy({from, to, renderData, ingores = []}) {
         }
     }
 
+    // 遍历文件
     files.forEach(file => {
-        if (ingores.some(v => v === file)) {
+        if ( ingores.some(v => v === file) ) {
             return
         }
         let content = fs.readFileSync(path.resolve(from, file), 'utf-8')
-        // 如果是ejs模板文件
+        // 如果是ejs模板文件，则进行数据渲染，并修改文件后缀
         if ( /ejs$/.test(file) ) {
             content = ejs.render(content, renderData)
             file = file.replace('.ejs', '')
         }
+        fs.writevSync(path.resolve(to, file), content)
+    })
 
+    // 遍历目录
+    dirs.forEach(dir => {
+        if (ingores.some(v => v === dir)) {
+            return
+        }
+        const fromDir = path.resolve(from, dir)
+        const toDir = path.resolve(to, dir)
+        if ( !utils.isDir(toDir) ) {
+            fs.mkdirSync(toDir)
+        }
+        copy({ from, to, renderData, ingores })
     })
 }
+
+module.exports = copy

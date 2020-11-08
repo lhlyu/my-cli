@@ -12,6 +12,7 @@ const pk = require('../../package.json')
 const conf = require('../config')
 const templates = require('../config/templates')
 const utils = require('../utils')
+const copy = require('../libs/copy')
 
 async function create(projectName, options) {
     const cwd = process.cwd()
@@ -30,7 +31,7 @@ async function create(projectName, options) {
         return
     }
 
-    if ( !fs.existsSync(targetDir) ) {
+    if ( !utils.isDir(targetDir) ) {
         fs.mkdirSync(targetDir)
     } else {
         console.error(chalk.red('该目录下已经存在，请删除或者修改名字'))
@@ -44,7 +45,7 @@ async function create(projectName, options) {
         choices: templates.map( (v, i) => ({
             key: i,
             name: v.name,
-            value: v.dir
+            value: i
         }))
     }, {
         type: 'input',
@@ -58,15 +59,31 @@ async function create(projectName, options) {
         message: 'desc: 请输入项目描述'
     }])
 
-    const sourceDir = path.resolve(__dirname, '..', 'templates', answers.template)
+    const sourceDir = path.resolve(__dirname, '..', 'templates', templates[answers.template].dir)
 
     console.log(chalk.blue('开始创建...'))
+
+    try {
+        await copy({
+            from: sourceDir,
+            to: targetDir,
+            renderData: {
+                PROJECT_NAME: projectName,
+                AUTHOR: answers.author,
+                DESC: answers.desc
+            },
+            ingores: templates[answers.template].ingores
+        })
+    } catch (e) {
+        console.error(chalk.red(e))
+        return
+    }
 
     console.log()
     console.log(chalk.green('创建完毕！'))
     console.log()
-    console.log(chalk.blue('进入目录:'),chalk.cyan(`cd ${projectName}`))
-    console.log(chalk.blue('安装依赖:'),chalk.cyan('npm i'), chalk.blue('或'), chalk.cyan('yarn'))
+    console.log(chalk.blue('进入目录:'), chalk.cyan(`cd ${projectName}`))
+    console.log(chalk.blue('安装依赖:'), chalk.cyan('npm i'), chalk.blue('或'), chalk.cyan('yarn'))
     console.log(chalk.blue('更新依赖:'), chalk.cyan('yarn upgrade --latest'))
     console.log()
 
