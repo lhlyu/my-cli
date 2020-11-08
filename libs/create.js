@@ -34,9 +34,12 @@ async function create(projectName, options) {
     if ( !utils.hasDir(targetDir) ) {
         fs.mkdirSync(targetDir)
     } else {
-        console.error(chalk.red('该目录下已经存在，请删除或者修改名字'))
+        console.error(chalk.red('该目录下已经存在同名项目，请删除或者修改名字'))
         return
     }
+
+    console.log(chalk.green.bold(`lhlyu-cli version ${pk.version}`))
+    console.log()
 
     const answers = await inquirer.prompt([{
         type: 'list',
@@ -82,11 +85,11 @@ async function create(projectName, options) {
     }
 
     console.log()
-    console.log(chalk.green('创建完毕！'))
+    console.log(chalk.green.bold('创建完毕！'))
     console.log()
-    console.log(chalk.blue('进入目录:'), chalk.cyan(`cd ${projectName}`))
-    console.log(chalk.blue('安装依赖:'), chalk.cyan('npm i'), chalk.blue('或'), chalk.cyan('yarn'))
-    console.log(chalk.blue('更新依赖:'), chalk.cyan('yarn upgrade --latest'))
+    console.log(chalk.green.bold('进入目录:'), chalk.cyan(`cd ${projectName}`))
+    console.log(chalk.green.bold('安装依赖:'), chalk.cyan('npm i'), chalk.green.bold('或'), chalk.cyan('yarn'))
+    console.log(chalk.green.bold('更新依赖:'), chalk.cyan('yarn upgrade --latest'))
     console.log()
 
 }
