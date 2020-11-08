@@ -2,28 +2,28 @@
 # 打标签自动发布
 name: npm-publish
 on:
-    push:
-        branches:
-            - master
+  push:
+    tags:
+    - 'v*'
 jobs:
-    npm-publish:
-        name: npm-publish
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout repository
-              uses: actions/checkout@master
-            - name: set up Node.js
-              uses: actions/setup-node@master
-              with:
-                  node-version: 15.0.1
-            - name: npm or yarn install with caching
-              uses: bahmutov/npm-install@v1.1.0
-            - name: publish to npm
-              uses: pascalgn/npm-publish-action@1.1.0
-              with:
-                  tag_name: "v%s"
-                  tag_message: "v%s"
-                  commit_pattern: "^\\s*v((\\d+\\.){2}\\d+)\\s*$"
-              env:
-                  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repository
+      uses: actions/checkout@master
+    - name: set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 15
+    - name: npm or yarn install with caching
+      uses: bahmutov/npm-install@v1.1.0
+    - name: publish to npm
+      uses: pascalgn/npm-publish-action@1.1.0
+      with:
+        tag_name: "v%s"
+        tag_message: "v%s"
+        commit_pattern: "^\\s*v((\\d+\\.){2}\\d+)\\s*$"
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
