@@ -23,7 +23,7 @@ const handlerContentType = file => {
 }
 
 http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type': 'text/plain'})
+    response.writeHead(200, { 'Content-Type': 'text/plain' })
     let url = request.url
     console.log('path => ', url)
     if (url === '/') {

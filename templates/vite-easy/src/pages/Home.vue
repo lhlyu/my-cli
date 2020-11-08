@@ -1,23 +1,20 @@
 <template>
     <p>asdad命运终将打破</p>
-	<HelloWorld></HelloWorld>
+    <HelloWorld></HelloWorld>
 </template>
 
 <script>
-
 import HelloWorld from '../components/HelloWorld.vue'
 
 export default {
     name: 'Home',
     components: {
-	    HelloWorld
+        HelloWorld
     },
-    setup () {
-	    return {}
+    setup() {
+        return {}
     }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

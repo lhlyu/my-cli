@@ -1,107 +1,82 @@
 :root {
-	--pb-theme-color: #{$themeColor};
-	--pb-font-color: #{$fontColor};
-	--pb-selection-bg-color: #{$selectionBgColor};
-	--pb-selection-color: #{$selectionColor};
-	--pb-bg-color: #{$bgColor};
+    --pb-theme-color: #{$themeColor};
+    --pb-font-color: #{$fontColor};
+    --pb-selection-bg-color: #{$selectionBgColor};
+    --pb-selection-color: #{$selectionColor};
+    --pb-bg-color: #{$bgColor};
 
-	--pb-font-family: #{$fontFamily};
-	--pb-font-weight: #{$fontWeight};
-	--pb-font-size: #{$fontSize};
-	--pb-letter-spacing: #{$letterSpace};
+    --pb-font-family: #{$fontFamily};
+    --pb-font-weight: #{$fontWeight};
+    --pb-font-size: #{$fontSize};
+    --pb-letter-spacing: #{$letterSpace};
 }
 
 body {
-	font-family: var(--pb-font-family);
-	font-weight: var(--pb-font-weight);
-	font-size: var(--pb-font-size);
-	letter-spacing: var(--pb-letter-spacing);
-	background: var(--pb-bg-color);
-	//background: url(../assets/1000.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-	color: var(--pb-font-color);
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	scroll-behavior: smooth;
-	cursor: $cursorDefualt;
-	transition: $transition;
-	height: 200vh;
-	padding: 0;
-	margin: 0;
+    font-family: var(--pb-font-family);
+    font-weight: var(--pb-font-weight);
+    font-size: var(--pb-font-size);
+    letter-spacing: var(--pb-letter-spacing);
+    background: var(--pb-bg-color);
+    //background: url(../assets/1000.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--pb-font-color);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    cursor: $cursorDefualt;
+    transition: $transition;
+    height: 200vh;
+    padding: 0;
+    margin: 0;
 }
 
-::-webkit-scrollbar,body::-webkit-scrollbar-track-piece {
-	background-color: transparent
+::-webkit-scrollbar,
+body::-webkit-scrollbar-track-piece {
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar {
-	width: 5px;
-	height: 5px
+    width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--pb-theme-color);
-	background-image: -webkit-linear-gradient(45deg,
-			rgba(255, 255, 255, 0.6) 25%,
-			transparent 0,
-			transparent 50%,
-			rgba(255, 255, 255, 0.6) 0,
-			rgba(255, 255, 255, 0.6) 75%,
-			transparent 0,
-			transparent
-	)
+    background-color: var(--pb-theme-color);
+    background-image: -webkit-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.6) 25%,
+        transparent 0,
+        transparent 50%,
+        rgba(255, 255, 255, 0.6) 0,
+        rgba(255, 255, 255, 0.6) 75%,
+        transparent 0,
+        transparent
+    );
 }
 
 ::selection {
-	background: var(--pb-selection-bg-color);
-	color: var(--pb-selection-color);
+    background: var(--pb-selection-bg-color);
+    color: var(--pb-selection-color);
 }
 
 a {
-	cursor: $cursorPointer;
-	transition: $transition;
-	text-decoration: none;
-	color: inherit;
+    cursor: $cursorPointer;
+    transition: $transition;
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-hr {
-	position: relative;
-	margin: 2rem auto;
-	border: 2px dashed var(--pb-theme-color);
-	background: white;
-	box-sizing: content-box;
-	overflow: visible;
-	height: 0;
-	width: calc(100% - 4px);
-
-	&:hover:before {
-		left: calc(95% - 20px);
-	}
-
-	&:before {
-		position: absolute;
-		top: -10px;
-		left: 5%;
-		z-index: 1;
-		color: var(--pb-theme-color);
-		font: normal normal normal 14px/1 FontAwesome;
-		content: '\f0c4';
-		font-size: 20px;
-		transition: all 1s ease-in-out;
-	}
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 #app {
-	position: relative;
-	z-index: 1;
-	width: calc(100vw - 5px);
-	overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: calc(100vw - 5px);
+    overflow: hidden;
 }

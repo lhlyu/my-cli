@@ -4,21 +4,20 @@
 </template>
 
 <script>
-
 import { useStore } from 'vuex'
 
 export default {
     name: 'HelloWorld',
-    setup () {
-    	const store = useStore()
-	    const state = store.state
-	    const addHandler = () => {
-    		store.commit('add')
-	    }
-	    return {
-		    state,
-		    addHandler
-	    }
+    setup() {
+        const store = useStore()
+        const state = store.state
+        const addHandler = () => {
+            store.commit('add')
+        }
+        return {
+            state,
+            addHandler
+        }
     }
 }
 </script>
