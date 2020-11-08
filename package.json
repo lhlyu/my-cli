@@ -1,8 +1,9 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.1-rc.5",
+    "version": "0.0.1-rc.6",
     "description": "lhlyu cli",
     "main": "src/index.js",
+    "bin": "src/index.js",
     "repository": "https://github.com/lhlyu/my-cli.git",
     "author": "lhlyu",
     "license": "MIT",
