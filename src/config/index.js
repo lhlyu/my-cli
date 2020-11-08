@@ -1,3 +1,4 @@
 module.exports = {
-    AUTHOR: 'lhlyu'
+    AUTHOR: 'lhlyu',
+    NICK_NAME: '谕℃'
 }

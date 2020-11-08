@@ -3,7 +3,7 @@ const path = require('path')
 const ejs = require('ejs')
 const utils = require('../utils')
 
-async function copy({from, to, renderData, ingores = []}) {
+async function copy( { from, to, renderData, ingores = [] } ) {
     let resources = fs.readdirSync(from)
     const files = []
     const dirs = []
@@ -26,7 +26,7 @@ async function copy({from, to, renderData, ingores = []}) {
             content = ejs.render(content, renderData)
             file = file.replace('.ejs', '')
         }
-        fs.writevSync(path.resolve(to, file), content)
+        fs.writeFileSync(path.resolve(to, file), content)
     })
 
     // 遍历目录
@@ -36,10 +36,15 @@ async function copy({from, to, renderData, ingores = []}) {
         }
         const fromDir = path.resolve(from, dir)
         const toDir = path.resolve(to, dir)
-        if ( !utils.isDir(toDir) ) {
+        if ( !utils.hasDir(toDir) ) {
             fs.mkdirSync(toDir)
         }
-        copy({ from, to, renderData, ingores })
+        copy( {
+            from: fromDir,
+            to: toDir,
+            renderData,
+            ingores
+        } )
     })
 }
 

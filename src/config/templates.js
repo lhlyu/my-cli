@@ -1,5 +1,5 @@
 module.exports = [{
-    name: 'js-easy : 一个普通的js模板',
-    dir: 'js-easy',
-    ingores: []
+    name: 'package-easy : 一个普通的package.json模板',
+    dir: 'package-easy',
+    ingores: ['.gitkeep']
 }]

@@ -1,6 +1,6 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.1",
+    "version": "0.0.1-rc",
     "description": "lhlyu cli",
     "main": "src/index.js",
     "repository": "https://github.com/lhlyu/my-cli.git",

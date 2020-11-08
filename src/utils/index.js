@@ -9,7 +9,12 @@ function hasDir(path) {
     return fs.existsSync(path)
 }
 
+function getFullYear() {
+    return new Date().getFullYear()
+}
+
 module.exports = {
     isDir,
-    hasDir
+    hasDir,
+    getFullYear
 }

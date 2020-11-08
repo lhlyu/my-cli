@@ -31,7 +31,7 @@ async function create(projectName, options) {
         return
     }
 
-    if ( !utils.isDir(targetDir) ) {
+    if ( !utils.hasDir(targetDir) ) {
         fs.mkdirSync(targetDir)
     } else {
         console.error(chalk.red('该目录下已经存在，请删除或者修改名字'))
@@ -70,12 +70,14 @@ async function create(projectName, options) {
             renderData: {
                 PROJECT_NAME: projectName,
                 AUTHOR: answers.author,
-                DESC: answers.desc
+                DESC: answers.desc,
+                NICK_NAME: conf.NICK_NAME,
+                YEAR: utils.getFullYear()
             },
             ingores: templates[answers.template].ingores
         })
     } catch (e) {
-        console.error(chalk.red(e))
+        console.log(chalk.red("COPY ERROR:"), e)
         return
     }
 
