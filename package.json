@@ -1,6 +1,6 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.1-rc.11",
+    "version": "0.0.1-rc.12",
     "description": "lhlyu cli",
     "main": "./libs/index.js",
     "bin": {
@@ -19,7 +19,7 @@
         "dev": "node ./bin/lhlyu-cli",
         "dev:c": "node ./bin/lhlyu-cli create app-demo"
     },
-    "devDependencies": {
+    "dependencies": {
         "chalk": "^4.1.0",
         "commander": "^6.2.0",
         "ejs": "^3.1.5",
