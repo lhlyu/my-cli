@@ -1,5 +1,6 @@
-const pk = require('../../package.json')
 const program = require('commander')
+
+const pk = require('../../package.json')
 
 function run() {
     program
@@ -8,10 +9,10 @@ function run() {
         .command('create <project-name>')
         .description('创建一个新的项目')
         .action((name, cmd) => {
-            console.log('you will create a project named', name)
+            require('./create')(name)
         })
 
-    if (! process.argv.slice(2).length) {
+    if ( !process.argv.slice(2).length ) {
         program.outputHelp()
         return
     }
