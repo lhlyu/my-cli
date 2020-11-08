@@ -1,10 +1,10 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.1-rc.8",
+    "version": "0.0.1-rc.9",
     "description": "lhlyu cli",
     "main": "./libs/index.js",
     "bin": {
-        "lhlyu-cli": "./bin/lhlyu-cli"
+        "lhlyu-cli": "./bin/lhlyu-cli.js"
     },
     "repository": "https://github.com/lhlyu/my-cli.git",
     "author": "lhlyu",
