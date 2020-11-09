@@ -1,6 +1,6 @@
 {
     "name": "lhlyu-cli",
-    "version": "0.0.3-rc",
+    "version": "0.0.3-rc.2",
     "description": "lhlyu cli",
     "main": "./libs/index.js",
     "bin": {
