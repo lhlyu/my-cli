@@ -6,4 +6,8 @@ module.exports = [{
     name: 'vite-easy : 一个vite模板',
     dir: 'vite-easy',
     ingores: ['.gitkeep']
+}, {
+    name: 'doc-easy : 一个docsify模板',
+    dir: 'doc-easy',
+    ingores: []
 }]
