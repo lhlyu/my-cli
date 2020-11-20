@@ -12,7 +12,7 @@ function run() {
             require('./create')(name)
         })
 
-    if ( !process.argv.slice(2).length ) {
+    if (!process.argv.slice(2).length) {
         program.outputHelp()
         return
     }

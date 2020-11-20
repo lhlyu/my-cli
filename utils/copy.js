@@ -1,14 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 const ejs = require('ejs')
-const utils = require('../utils')
+const utils = require('./index')
 
-async function copy( { from, to, renderData, ingores = [] } ) {
+async function copy({ from, to, renderData, ingores = [] }) {
     let resources = fs.readdirSync(from)
     const files = []
     const dirs = []
     for (const resource of resources) {
-        if ( utils.isDir(path.resolve(from, resource)) ) {
+        if (utils.isDir(path.resolve(from, resource))) {
             dirs.push(resource)
         } else {
             files.push(resource)
@@ -17,12 +17,12 @@ async function copy( { from, to, renderData, ingores = [] } ) {
 
     // 遍历文件
     files.forEach(file => {
-        if ( ingores.some(v => v === file) ) {
+        if (ingores.some(v => v === file)) {
             return
         }
         let content = fs.readFileSync(path.resolve(from, file), 'utf-8')
         // 如果是ejs模板文件，则进行数据渲染，并修改文件后缀
-        if ( /ejs$/.test(file) ) {
+        if (/ejs$/.test(file)) {
             content = ejs.render(content, renderData)
             file = file.replace('.ejs', '')
         }
@@ -36,15 +36,15 @@ async function copy( { from, to, renderData, ingores = [] } ) {
         }
         const fromDir = path.resolve(from, dir)
         const toDir = path.resolve(to, dir)
-        if ( !utils.hasDir(toDir) ) {
+        if (!utils.hasDir(toDir)) {
             fs.mkdirSync(toDir)
         }
-        copy( {
+        copy({
             from: fromDir,
             to: toDir,
             renderData,
             ingores
-        } )
+        })
     })
 }
 
