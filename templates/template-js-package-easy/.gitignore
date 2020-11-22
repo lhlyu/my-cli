@@ -46,7 +46,6 @@
 nbproject
 thumbs.db
 *.iml
-*.local
 
 # Folders to ignore
 .hg
@@ -56,3 +55,4 @@ thumbs.db
 node_modules/
 jscoverage_lib/
 bower_components/
+app-demo/

@@ -12,4 +12,4 @@
 
 ## 当前模板列表
 
-[查看模板](./config/templates.js)
+[查看模板](./templates)
