@@ -1,39 +1,31 @@
-const chalk = require('chalk')
-// 创建完成后提示语设定
-function npmRunTip(projectName) {
-    console.log()
-    console.log(chalk.green.bold('进入目录:'), chalk.cyan(`cd ${projectName}`))
-    console.log(chalk.green.bold('安装依赖:'), chalk.cyan('npm i'), chalk.green.bold('或'), chalk.cyan('yarn'))
-    console.log(chalk.green.bold('更新依赖:'), chalk.cyan('yarn upgrade --latest'))
-    console.log()
-}
+const TemplateJsPackageEasy = require('../lib/template_js_package_esay')
+const TemplateJsDocEasy = require('../lib/template_js_doc_easy')
+const TemplateJsViteEasy = require('../lib/template_js_vite_esay')
 
-function docRunTip(projectName) {
-    console.log()
-    console.log(chalk.green.bold('进入目录:'), chalk.cyan(`cd ${projectName}`))
-    console.log(chalk.green.bold('安装docsify(已安装略过):'), chalk.cyan('npm i docsify-cli -g'))
-    console.log(chalk.green.bold('运行项目:'), chalk.cyan('docsify serve docs'))
-    console.log(chalk.green.bold('文档地址:'), chalk.cyan('https://docsify.js.org/#/zh-cn/quickstart'))
-    console.log()
-}
-
-module.exports = [
-    {
-        name: 'package-easy : 一个普通的package.json模板',
-        dir: 'package-easy',
-        ingores: ['.gitkeep'],
-        after: npmRunTip
-    },
-    {
-        name: 'vite-easy : 一个vite模板',
-        dir: 'vite-easy',
-        ingores: ['.gitkeep'],
-        after: npmRunTip
-    },
-    {
-        name: 'doc-easy : 一个docsify模板',
-        dir: 'doc-easy',
-        ingores: [],
-        after: docRunTip
-    }
+const tmps = [
+    new TemplateJsPackageEasy(),
+    new TemplateJsDocEasy(),
+    new TemplateJsViteEasy()
 ]
+
+const langs = (function () {
+    const items = []
+    for (let i = 0; i < tmps.length; i++) {
+        console.log(tmps[i])
+        if (items.indexOf(tmps[i].lang) === -1) {
+            items.push(tmps[i].lang)
+        }
+    }
+    return items
+})()
+
+const templates = (function () {
+    const items = []
+    for (let i = 0; i < tmps.length; i++) {
+        items.push(tmps[i].props)
+    }
+})()
+
+console.log(langs)
+console.log(templates)
+

@@ -18,7 +18,9 @@
     "scripts": {
         "fmt": "prettier --write .",
         "dev": "node ./bin/lhlyu-cli",
-        "dev:c": "node ./bin/lhlyu-cli create app-demo"
+        "dev:c": "node ./bin/lhlyu-cli create app-demo",
+        "dev:i": "node ./bin/lhlyu-cli",
+        "dev:a": "node ./bin/lhlyu-cli -l -t"
     },
     "dependencies": {
         "chalk": "^4.1.0",
