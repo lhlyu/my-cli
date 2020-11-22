@@ -11,9 +11,8 @@ const tmps = [
 const langs = (function () {
     const items = []
     for (let i = 0; i < tmps.length; i++) {
-        console.log(tmps[i])
-        if (items.indexOf(tmps[i].lang) === -1) {
-            items.push(tmps[i].lang)
+        if (items.indexOf(tmps[i].props.lang) === -1) {
+            items.push(tmps[i].props.lang)
         }
     }
     return items
@@ -24,8 +23,11 @@ const templates = (function () {
     for (let i = 0; i < tmps.length; i++) {
         items.push(tmps[i].props)
     }
+    return items
 })()
 
-console.log(langs)
-console.log(templates)
 
+module.exports = {
+    langs,
+    templates
+}
