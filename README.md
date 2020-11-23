@@ -8,7 +8,7 @@
 
 ## 使用
 
-`lhlyu-cli create <你的项目名>`
+`$ lhlyu-cli`
 
 ## 当前模板列表
 
